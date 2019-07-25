@@ -84,7 +84,8 @@ const Excute = async function(User, sleep){
             if (cursor) feed.setCursor(cursor);
             var media = await feed.get();
             media = _.chunk(media, 5);
-            for (var i = 0; i < media.length; i++) {
+           
+		    for(var i=0;i<=1;i++){
                 await Promise.all(media[i].map(async (media) => {
                     const doLike = await Like(doLogin.session, media);
                     console.log(chalk`${media.params.user.username} [{cyan ${media.id}}] => ${doLike}`);
